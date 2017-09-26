@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.dimigo.vo.UserVO;
 import org.json.simple.JSONObject;
 
 import com.google.gson.Gson;
@@ -54,8 +55,18 @@ public class LoginServlet extends HttpServlet {
    boolean result = true;
    
    if(result){
-	   //세션에 사용자 생성
+	   //세션에 사용자정보를 생성하여 담기
 	HttpSession session = request.getSession();
+	
+	UserVO user = new UserVO();
+	user.setId(id);
+	user.setName("홍길동");
+	user.setNickname("의적");
+	
+	
+	session.setAttribute("user", user);
+   RequestDispatcher rd = request.getRequestDispatcher("jsp/home.jsp");
+   rd.forward(request, response);
    
    }
    
