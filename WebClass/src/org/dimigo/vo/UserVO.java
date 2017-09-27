@@ -4,21 +4,23 @@
 package org.dimigo.vo;
 
 /**
- * <pre> 
+ * <pre>
  * org.dimigo.vo
- * 	 |_  UserVO 
+ *	 |_JavaVO
  *
- * 1. 개요 :
- * 2. 작성일 : 2017. 9. 26.
+ *
+ * 1 개요 	:
+ * 2. 작성일 :  2017. 9. 26.
  * </pre>
+ * 
+ * @auther :  	suboum
+ * @Versiion : 	1.0
  *
- * @author		: hana4
- * @version		: 1.0
  */
 public class UserVO {
+	
 	private String id;
 	private String name;
-	private String nickname;
 	/**
 	 * @return the id
 	 */
@@ -55,5 +57,5 @@ public class UserVO {
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-
+	private String nickname;
 }

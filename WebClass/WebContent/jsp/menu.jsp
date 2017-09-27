@@ -1,13 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
 <ul class="navbar-nav mr-auto">
-            <li class="nav-item" onmouseover="menu_over(this);"
-               onmouseout="menu_out(this)"><a class="nav-link" href="a.html">¸Þ´º1</a></li>
-            <li class="nav-item" onmouseover="menu_over(this);"
-               onmouseout="menu_out(this)"><a class="nav-link" href="p.html">¸Þ´º2</a></li>
-            <li class="nav-item" onmouseover="menu_over(this);"
-               onmouseout="menu_out(this)"><a class="nav-link"
-               href="dom.html">¸Þ´º3</a></li>
-         </ul>
-         
-       
+        <li class="nav-item" onmouseover="menu_over(this);" onmouseout="menu_out(this);">
+          <a class="nav-link" href="/WebClass/session">ë©”ë‰´1</a>
+        </li>
+        <li class="nav-item" onmouseover="menu_over(this);" onmouseout="menu_out(this);">
+          <a class="nav-link" href="#">ë©”ë‰´ 2</a>
+        </li>
+        <li class="nav-item" onmouseover="menu_over(this);" onmouseout="menu_out(this);">
+          <a class="nav-link" href="#">ë©”ë‰´ 3</a>
+        </li>
+      </ul>
+
+</body>
+</html>

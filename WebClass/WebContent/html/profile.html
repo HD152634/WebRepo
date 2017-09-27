@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<h1>ÇÁ·ÎÇÊ</h1>
-<p id = "profile"></p>
 <script>
-var hobby=["Å¹±¸","°ÔÀÓ"];
-var id ="2301";
-var name = "È«±æµ¿";
+var id = "2301";
+var name = "í™ê¸¸ë™";
 var age = 18;
-var height = 173.5;
-
+var height = "173.5 ";
+var hobby = {"íƒêµ¬", " ê²Œì„"};
 console.log(typeof id);
 console.log(typeof age);
-console.log(typeof hobby);
-console.log(typeof 123);
-console.log(document.getElementById("profile"));
-
+console.log(typeof height);
+console.log(typeof name);
 document.getElementById("profile").innerHTML=
-	"<ul><li>ÇĞ¹ø :"+id+"</li>"+
-	"<li>ÀÌ¸§:"+name+"</li>"+
-	"<li>³ªÀÌ:"+age+"¼¼</li>"+
-	"<li>Å°:"+height+"cm</li>"+
-	"<li>Ãë¹Ì:"+hobby+"</li></ul>"
+"<ul>"+
+"<li> í•™ë²ˆ : " + id + "</li>" +
+"<li> ì´ë¦„ : " + name + "</li>"+
+"<li> ë‚˜ì´ : " + age + "ì„¸ </li>"+
+"<li> í‚¤ : " + height + "cm</li>"+
+"<li> ì·¨ë¯¸ : " + hobby + "</li></ul>" ;
 </script>
-
+<h1>í”„ë¡œí•„</h1>
+<p id = "profile"></p>
 </body>
 </html>

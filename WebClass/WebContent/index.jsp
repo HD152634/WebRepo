@@ -1,25 +1,26 @@
-<!--  1. Directive tag (Áö½ÃÀÚ) -->
+<!--  1. Directive tag ( ì§€ì‹œìž )  -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Ã¹¹øÂ° JSP</title>
+<title>ì²« ë²ˆì§¸ jsp</title>
 </head>
 <body>
-<%-- 2.JSP ÁÖ¼® tag --%>
-<%-- 3. Declaration tag (¼±¾ðºÎ) --%>
-<%! private static final String DEFAULT_NAME= "Guest"; %>
+<%-- 2. JSP ì£¼ì„ tag --%>
+<%-- 3. Declaration tag(ì„ ì–¸ë¶€)  --%>
+<%! private static final String DEFAULT_NAME = "Guest"; %>
+<%-- 4. Scriptlet tag(ìŠ¤í¬ë¦½í‹€ë¦¿) --%>
 <%
-	//ÀÚ¹ÙÄÚµå¸¦ ±×´ë·Î ÀÛ¼º
+	//ìžë°” ì½”ë“œë¥¼ ê·¸ëŒ€ë¡œ ìž‘ì„±
 	String name = request.getParameter("name");
 	if(name == null) name = DEFAULT_NAME;
-	//out.println("<h1>Hello,"+name+"</h1>");
-
+	//out.println("<h1>Hello, " + name + "</h1>");
+	
 %>
-<%-- 5. Expression tag(Ç¥Çö½Ä) --%>
-<h1>Hello, <%=name %></h1>
-
+<%-- 5. Expression tag(í‘œí˜„ì‹) --%>
+<h1>Hello, <%=name%></h1>
 </body>
 </html>
