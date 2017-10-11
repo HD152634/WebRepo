@@ -22,6 +22,20 @@ public class UserVO {
 	private String id;
 	private String name;
 	/**
+	 * @return the pwd
+	 */
+	public String getPwd() {
+		return pwd;
+	}
+	/**
+	 * @param pwd the pwd to set
+	 */
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+	private String pwd;
+	
+	/**
 	 * @return the id
 	 */
 	public String getId() {

@@ -38,11 +38,37 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
 <script>
+
 	<%-- 회원 가입이 실패한 경우 처리 추가 --%>
-		var myModal = $('#myModal');
-		myModal.find('.modal-title').text('Sign Up Error');
-		myModal.find('.modal-body').text('회원 가입 시 오류가 발생하였습니다.');
-		myModal.modal();
+	
+	 $(document).ready(function () {
+		  $('#signupForm').submit(function (event) {
+			  event.preventDefault();
+			var email = $('#inputEmail').val();
+			var  pwd= $('#inputPassword').val();
+			var name= $('#inputName').val();
+			var nickname= $('#inputNickName').val();
+			console.log(email,pwd,name,nickname);
+			var result;
+			$.post("/WebClass/signup",
+					{"email" : email, "pwd" : pwd, "name" : name, "nickname" : nickname,"result" : result},
+			function(data) {
+                console.log(data);
+                if(data.result){
+                   location.href='jsp/login.jsp';   
+                }
+                else{
+                   console.log(data.email,data.pwd,data.name,data.nickName,data.result);
+                   var myModal = $('#myModal');
+                   myModal.find('.modal-title').text('Sign Up Error');
+                   myModal.find('.modal-body').text('회원 가입 시 오류가 발생하였습니다.');
+                   myModal.modal();
+                }
+             });
+      });
+   });
+
+	 
 </script>
 
 </body>
