@@ -2,6 +2,8 @@ package org.dimigo.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,63 +16,61 @@ import javax.servlet.http.HttpSession;
 import org.dimigo.vo.UserVO;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 
 /**
  * Servlet implementation class BlogLoginServlet
  */
 @WebServlet("/bloglogin")
 public class BlogLoginServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public BlogLoginServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+   private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("jsp/login.jsp");
-	     rd.forward(request,  response);
-	}
+   /**
+    * @see HttpServlet#HttpServlet()
+    */
+   public BlogLoginServlet() {
+      super();
+      // TODO Auto-generated constructor stub
+   }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("application/json;charset=utf-8");
-	      PrintWriter out = response.getWriter();
-	      
-	      request.setCharacterEncoding("utf-8");
-	      String id = request.getParameter("id");
-	      String pwd = request.getParameter("pwd");
-	      System.out.printf("id : %s, pwd : %s\n",id, pwd);
-	      
-	      if(id.equals("test@naver.com")) { 
-	    	  //새션에 사용자 정보 생성
-	    	  HttpSession session = request.getSession();
-	    	  session.setAttribute("id", id);
-	    	  
-	    	  UserVO user = new UserVO();
-	    	  user.setId(id);
-	    	  user.setName("하나연");
-	    	  
-	    	  session.setAttribute("user", user);
-	    	  
-	    	  RequestDispatcher rd = request.getRequestDispatcher("myblog/myblog.jsp");
-	    	  rd.forward(request, response);		  
-	      } else {
-	    	  request.setAttribute("msg", "error");
-	    	  RequestDispatcher rd = request.getRequestDispatcher("myblog/myblog.jsp");
-	    	  rd.forward(request, response);		  
-	      }
-	      
-	      out.close();
-	}
+   /**
+    * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+    *      response)
+    */
+   protected void doGet(HttpServletRequest request, HttpServletResponse response)
+         throws ServletException, IOException {
+   }
 
+   /**
+    * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+    *      response)
+    */
+   protected void doPost(HttpServletRequest request, HttpServletResponse response)
+         throws ServletException, IOException {
+      // TODO Auto-generated method stub
+      request.setCharacterEncoding("utf-8");
+      String id = request.getParameter("id");
+      String name = "홍길동";
+      String pwd = request.getParameter("pwd");
+      boolean result = false;
+      String string = "test@naver.com";
+      if (id.equals(string)) {
+         result = true;
+      }
+      if (result == true) {
+         // 세션에 사용자 정보를 생성해서 담기
+         HttpSession session = request.getSession();
+         UserVO user = new UserVO();
+         user.setId(id);
+         user.setName(name);
+
+         session.setAttribute("user", user);
+
+         RequestDispatcher rd = request.getRequestDispatcher("myblog/myblog.jsp");
+         rd.forward(request, response);
+      } else {
+         request.setAttribute("msg", "error");
+         RequestDispatcher rd = request.getRequestDispatcher("myblog/myblog.jsp");
+         rd.forward(request, response);
+      }
+   }
 }

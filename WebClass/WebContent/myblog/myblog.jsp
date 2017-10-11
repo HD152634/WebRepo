@@ -34,7 +34,7 @@
 
 </head>
 
-<body onload="alert('반갑다');">
+<body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="myblog.html">Home</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -113,7 +113,6 @@
 					<p></p>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary">Save changes</button>
 					<button type="button" class="btn btn-secondary"
 						data-dismiss="modal">Close</button>
 				</div>
@@ -138,4 +137,15 @@
 
 
 </body>
+<script>
+	<%-- 로그인이 실패한 경우 처리 추가 --%>
+	<%
+		if("error".equals(request.getAttribute("msg"))){
+	%>
+		var myModal = $('#myModal');
+		myModal.find('.modal-title').text('Login Error');
+		myModal.find('.modal-body').text('Invalid username or password');
+		myModal.modal();  
+		<% } %>
+</script>
 </html>
